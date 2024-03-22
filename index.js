@@ -42,7 +42,7 @@ class SnakeAndLadderGame{
         const diceValue = this.rollDice();
         const currentPosition = this.playerPosition[currPlayer];
         this.movePlayer(currPlayer, diceValue);
-        const newPosition = this.playerPosition[currentPosition];
+        const newPosition = this.playerPosition[currPlayer];
         console.log(`${currPlayer} rolled a ${diceValue} and moved from ${currentPosition} to ${newPosition}`);
 
         if(newPosition == 100){
@@ -59,7 +59,30 @@ class SnakeAndLadderGame{
 }
 
 // INPUT SNAKE
+const snakes = [
+    { head: 62, tail: 5 },
+    { head: 33, tail: 6 },
+    { head: 49, tail: 9 },
+    { head: 88, tail: 16 },
+    { head: 41, tail: 20 },
+    { head: 56, tail: 53 },
+    { head: 98, tail: 64 },
+    { head: 93, tail: 73 },
+    { head: 95, tail: 75 }
+];
 
+const ladders = [
+    { start: 2, end: 37 },
+    { start: 27, end: 46 },
+    { start: 10, end: 32 },
+    { start: 51, end: 68 },
+    { start: 61, end: 79 },
+    { start: 65, end: 84 },
+    { start: 71, end: 91 },
+    { start: 81, end: 100 }
+]
 
-// const game = new SnakeAndLadderGame([], [], []);
-// console.log(game.rollDice());
+const players = ["Prity", "Sahil"];
+
+const game = new SnakeAndLadderGame(snakes,ladders, players);
+game.startGame();
